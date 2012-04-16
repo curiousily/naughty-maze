@@ -1,0 +1,11 @@
+*.gem
+.bundle
+pkg/*
+log/*
+tmp/*
+
+# Ignore idea stuff
+
+.idea/
+*.iml
+*.swp
