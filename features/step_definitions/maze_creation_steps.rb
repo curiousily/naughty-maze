@@ -5,6 +5,3 @@ Given /^I have provided width, height and walls$/ do
   @maze = MazeBuilder.new(5, 5, @walls)
 end
 
-Then /^It should not be in it$/ do
-  pending
-end

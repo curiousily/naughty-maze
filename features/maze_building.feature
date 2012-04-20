@@ -6,5 +6,9 @@ Feature: Build a general maze
     Given I have provided width, height and walls
 
   Scenario: Provided cell position not in the maze
-    When I check if cell 20 is in the maze
+    When I check if cell 26 is in the maze
     Then It should not be in it
+
+  Scenario: Provided cell position in the maze
+    When I check if cell 3 is in the maze
+    Then It should be in it
