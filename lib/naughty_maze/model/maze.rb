@@ -14,6 +14,10 @@ module NaughtyMaze
         @cells.has_value? cell
       end
 
+      def wall?(row, column)
+        !@free_positions[[row, column]]
+      end
+
       def neighbours_of(cell)
         @graph.neighbours_of(cell).collect! {|node| node.id}
       end

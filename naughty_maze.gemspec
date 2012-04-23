@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
 
   # specify any dependencies here; for example:
   s.add_dependency "algorithms"
+  s.add_dependency "commander"
   s.add_development_dependency "rspec"
   s.add_development_dependency "cucumber"
   # s.add_runtime_dependency "rest-client"

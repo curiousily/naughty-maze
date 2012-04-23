@@ -15,6 +15,12 @@ Feature: Find the length path in a maze with given rows, columns, walls, start a
     And the path finding is executed
     Then cell not in maze error is raised
 
+  Scenario: Start point is at a wall position
+    Given a wall at row 1 and column 1
+    And the Maze is build
+    When I set start at 1 and end at 8
+    Then not existing path error is raised
+
   # S * W *
   # * * W *
   # * * W E
@@ -51,3 +57,26 @@ Feature: Find the length path in a maze with given rows, columns, walls, start a
     When I set start at 1 and end at 12
     And the path finding is executed
     Then the path distance should be 5
+
+  # * * * *
+  # * * E *
+  # * * S *
+  # * * * *
+  Scenario: Start and End point are neighbours
+    Given the Maze is build
+    When I set start at 11 and end at 7
+    And the path finding is executed
+    Then the path distance should be 1
+
+  # * * * *
+  # S W W *
+  # * * W E
+  # * * * *
+  Scenario: Start and End point are neighbours
+    Given a wall at row 2 and column 2
+    And a wall at row 2 and column 3
+    And a wall at row 3 and column 3
+    And the Maze is build
+    When I set start at 5 and end at 12
+    And the path finding is executed
+    Then the path distance should be 6

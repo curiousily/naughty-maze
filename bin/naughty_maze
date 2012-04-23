@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+$: << File.dirname(File.dirname(__FILE__)) + "/lib"
+require 'naughty_maze'
+
+include NaughtyMaze
+
+program :name, 'Maze Solver'
+program :version, VERSION
+program :description, 'General Maze solver using an A* algorithm'
+
+start

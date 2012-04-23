@@ -14,8 +14,14 @@ module NaughtyMaze
         raise CellNotFoundError.new("Start point: #@start_point is not in the maze")
       end
       unless @maze.include?(@end_point)
-        raise CellNotFoundError.new("Start point: #@end_point is not in the maze")
+        raise CellNotFoundError.new("End point: #@end_point is not in the maze")
       end
+      #unless @maze.wall?(@start_point)
+      #  raise NotExistingPathError.new("Start point: #@start_point is colliding with a wall")
+      #end
+      #unless @maze.wall?(@end_point)
+      #  raise NotExistingPathError.new("End point: #@end_point is colliding with a wall")
+      #end
 
       visited = Set.new
       not_visited = Set.new
