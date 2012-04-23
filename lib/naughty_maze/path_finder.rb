@@ -8,7 +8,7 @@ module NaughtyMaze
 
     def execute
       if @start_point == @end_point
-        return Path.new
+        return Path.new(@start_point)
       end
       unless @maze.include?(@start_point)
         raise CellNotFoundError.new("Start point: #@start_point is not in the maze")
@@ -62,8 +62,7 @@ module NaughtyMaze
     private
 
     def reconstruct_path(parent_map)
-      path = Path.new
-      path.segments << @end_point
+      path = Path.new(@end_point)
       add_segments_to_path(path, parent_map, parent_map[@end_point])
       path.segments.reverse!
       path

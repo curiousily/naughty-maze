@@ -40,7 +40,7 @@ Feature: Find the length path in a maze with given rows, columns, walls, start a
     And the Maze is build
     When I set start at 1 and end at 12
     And the path finding is executed
-    Then the path distance should be 8
+    Then the path distance should be 7
 
   # S * * *
   # * * * *
@@ -50,4 +50,4 @@ Feature: Find the length path in a maze with given rows, columns, walls, start a
     Given the Maze is build
     When I set start at 1 and end at 12
     And the path finding is executed
-    Then the path distance should be 6
+    Then the path distance should be 5

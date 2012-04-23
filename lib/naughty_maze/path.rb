@@ -3,12 +3,13 @@ module NaughtyMaze
 
     attr_accessor :segments
 
-    def initialize
+    def initialize(start_segment)
       @segments = []
+      @segments << start_segment
     end
 
     def length
-      @segments.length
+      @segments.length - 1
     end
   end
 end
