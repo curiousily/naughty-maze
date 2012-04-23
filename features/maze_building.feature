@@ -3,7 +3,7 @@ Feature: Build a general maze
   Build a general case of a maze (that is to say, it is not necessary to have a Full maze) for this builder to work.
 
   Background:
-    Given I have provided width, height and walls
+    Given a created Maze with 4 rows and 4 columns
 
   Scenario: Provided cell position not in the maze
     When I check if cell 17 is in the maze
@@ -14,6 +14,7 @@ Feature: Build a general maze
     Then it should be in it
 
   Scenario: Check the neighbour count of a inner cell
+
     When I check the neighbours of cell 11
     Then their count should be 4
 
@@ -21,6 +22,3 @@ Feature: Build a general maze
     When I check the neighbours of cell 4
     Then their count should be 2
 
-  Scenario: Walls should not be trespassed
-    When I check the neighbours of cell 7
-    Then their count should be 3

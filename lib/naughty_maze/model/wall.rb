@@ -1,5 +1,5 @@
 module NaughtyMaze
-  module Maze
+  module Model
     class Wall
       attr_reader :row, :column
 
