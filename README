@@ -1,1 +1,6 @@
 General maze solver (e.g. robot maze solver) using A* algorithm
+
+=== How to use
+1. enter the main directory
+2. chmod +x bin/naughty_maze
+3. bin/naughty_maze
