@@ -18,14 +18,6 @@ module NaughtyMaze
         build_maze
       end
 
-      def include?(cell)
-        @cells.has_value? cell
-      end
-
-      def neighbours_of(cell)
-        @graph.neighbours_of(cell).to_a
-      end
-
       private
 
       def assign_free_positions
@@ -53,6 +45,7 @@ module NaughtyMaze
             assign_neighbours(cell_num, row, column)
           end
         end
+        Maze.new(@graph, @cells, @free_positions)
       end
 
       def cell_num_of(column, row)

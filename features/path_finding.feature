@@ -8,3 +8,8 @@ Feature: Find the path in a maze with given rows, columns, walls, start and end 
     When I set start at 1 and end at 1
     And the path finding is executed
     Then the path distance should be 0
+
+  Scenario: Start and End point are different and there is a path
+    When I set start at 1 and end at 12
+    And the path finding is executed
+    Then the path distance should be 5

@@ -3,8 +3,8 @@ When /^I set start at (\d+) and end at (\d+)$/ do |start_point, end_point|
 end
 
 When /^the path finding is executed$/ do
-  @path_finder.execute
+  @path_distance = @path_finder.execute
 end
 Then /^the path distance should be (\d+)$/ do |path_distance|
-  path_distance.should == path_distance
+  @path_distance.should == path_distance
 end
