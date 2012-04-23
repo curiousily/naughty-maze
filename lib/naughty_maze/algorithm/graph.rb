@@ -28,7 +28,7 @@ module NaughtyMaze
         if @nodes.has_key? node
           return @nodes[node].neighbours
         end
-        []
+        Set.new
       end
 
       private
