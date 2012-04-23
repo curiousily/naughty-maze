@@ -14,9 +14,13 @@ Feature: Build a general maze
     Then it should be in it
 
   Scenario: Check the neighbour count of a inner cell
-    When I check the neighbours of cell 7
+    When I check the neighbours of cell 11
     Then their count should be 4
 
   Scenario: Check the neighbour count of a bound cell
     When I check the neighbours of cell 4
     Then their count should be 2
+
+  Scenario: Walls should not be trespassed
+    When I check the neighbours of cell 7
+    Then their count should be 3
