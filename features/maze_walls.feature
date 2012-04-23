@@ -8,3 +8,12 @@ Feature: A maze has walls and they cannot be trespassed
     And the Maze is build
     When I check the neighbours of cell 7
     Then their count should be 3
+
+  Scenario: Complete wall should not be trespassed
+    Given a wall at row 1 and column 3
+    And a wall at row 2 and column 3
+    And a wall at row 3 and column 3
+    And a wall at row 4 and column 3
+    And the Maze is build
+    When I check the neighbours of cell 4
+    Then their count should be 1

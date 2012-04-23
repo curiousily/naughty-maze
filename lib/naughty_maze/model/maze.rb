@@ -2,6 +2,8 @@ module NaughtyMaze
   module Model
     class Maze
 
+      attr_reader :free_positions
+
       def initialize(graph, cells, free_positions)
         @graph = graph
         @free_positions = free_positions
@@ -13,7 +15,7 @@ module NaughtyMaze
       end
 
       def neighbours_of(cell)
-        @graph.neighbours_of(cell).to_a
+        @graph.neighbours_of(cell).collect! {|node| node.id}
       end
     end
   end
