@@ -36,10 +36,10 @@ Feature: Find the length path in a maze with given rows, columns, walls, start a
     When the path finding is executed
     Then not existing path error is raised
 
-  # S * W  *
-  # * * W  *
+  # S * W *
+  # * * W *
   # * * W E
-  # * * *  *
+  # * * * *
   Scenario: Start and End point are reachable, but walls interfere the shortest path walk
     Given I set start at start row 1 and start column 1 and end row 3 and end column 4
     And a wall at row 1 and column 3
@@ -49,10 +49,10 @@ Feature: Find the length path in a maze with given rows, columns, walls, start a
     When the path finding is executed
     Then the path distance should be 7
 
-  # W W W W  *
+  # W  W  W  W  *
   # *  *  *  W  *
-  # *  W *  W  E
-  # *  W *  W  *
+  # *  W  *  W  E
+  # *  W  *  W  *
   # *  S  *  W  *
   Scenario: Start is at the other side of the wall
     Given a Maze with 5 rows and 5 columns
@@ -71,9 +71,9 @@ Feature: Find the length path in a maze with given rows, columns, walls, start a
     When the path finding is executed
     Then not existing path error is raised
 
-  # W W W W  *
+  # W  W  W  W  *
   # *  *  *  W  *
-  # *  W *  W  E
+  # *  W  *  W  E
   # *  *  *  W  *
   # *  S  *  W  *
   Scenario: Start is at the other side of the wall
@@ -120,10 +120,19 @@ Feature: Find the length path in a maze with given rows, columns, walls, start a
     When the path finding is executed
     Then the path distance should be 3
 
-  # *  *   *  *
-  # S  W W  *
-  # *  *  W  E
-  # *  *  *   *
+  # E W * S
+  Scenario: Start and End point are on the same and only row and there is a wall between them
+    Given a Maze with 1 rows and 4 columns
+    And a wall at row 1 and column 2
+    And I set start at start row 1 and start column 4 and end row 1 and end column 1
+    And the Maze is build
+    When the path finding is executed
+    Then not existing path error is raised
+
+  # * * * *
+  # S W W *
+  # * * W E
+  # * * * *
   Scenario: Start and End point are neighbours
     Given I set start at start row 2 and start column 1 and end row 3 and end column 4
     And a wall at row 2 and column 2

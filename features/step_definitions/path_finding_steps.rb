@@ -4,8 +4,8 @@ When /^I set start at start row (\d+) and start column (\d+) and end row (\d+) a
 end
 
 When /^the path finding is executed$/ do
+  @path_finder = PathFinder.new(@maze)
   begin
-    @path_finder = PathFinder.new(@maze_builder.build)
     @path = @path_finder.execute
   rescue StandardError => error
     @error = error
