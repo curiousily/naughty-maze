@@ -2,24 +2,30 @@ module NaughtyMaze
   module Model
     class Maze
 
-      attr_reader :free_positions
+      attr_reader :free_positions, :start_point, :end_point
 
-      def initialize(graph, cells, free_positions)
+      def initialize(start_point, end_point, graph, cells)
         @graph = graph
-        @free_positions = free_positions
         @cells = cells
+        @start_point = start_point
+        @end_point = end_point
       end
 
       def include?(cell)
-        @cells.has_value? cell
+        @cells.each_key do |key|
+          if @cells[key].num == cell.num then
+            return true
+          end
+        end
+        false
       end
 
       def wall?(row, column)
-        !@free_positions[[row, column]]
+        @cells[[row, column]].is_a?(Wall)
       end
 
       def neighbours_of(cell)
-        @graph.neighbours_of(cell).collect! {|node| node.id}
+        @graph.neighbours_of(cell).collect! { |node| node.id }
       end
     end
   end

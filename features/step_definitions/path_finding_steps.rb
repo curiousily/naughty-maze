@@ -1,9 +1,11 @@
-When /^I set start at (\d+) and end at (\d+)$/ do |start_point, end_point|
-  @path_finder = PathFinder.new(start_point, end_point, @maze_builder.build)
+When /^I set start at start row (\d+) and start column (\d+) and end row (\d+) and end column (\d+)$/ do |start_row, start_column, end_row, end_column|
+  @maze_builder.start_point= Cell.new(start_row, start_column)
+  @maze_builder.end_point = Cell.new(end_row, end_column)
 end
 
 When /^the path finding is executed$/ do
   begin
+    @path_finder = PathFinder.new(@maze_builder.build)
     @path = @path_finder.execute
   rescue StandardError => error
     @error = error
